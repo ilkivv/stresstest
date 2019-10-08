@@ -121,8 +121,8 @@ function form_html_result($url, $login = '', $password = '')
 
     return "
 <div id=\"stress-test-panel\" class=\"stress-process\">
-        <form class=\"stress-process__form\" action=\"\">
-            <input type=\"text\" class=\"stress-process__input\" value=\"https://redramka.ru/\">
+        <form class=\"stress-process__form\" method='post' action='/'>
+            <input type=\"text\" class=\"stress-process__input\" value='" . $url . "'>
             <button class=\"stress-process__reset\">Reset</button>
         </form>
     </div>
