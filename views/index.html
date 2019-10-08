@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="views/css/styles.css">
+    <title>Index</title>
+</head>
+
+<body>
+
+
+    <div class="stress-page">
+        <main class="main">
+            <div class="wrap">
+                <div id="stress-test-header">
+                    <h1 class="stress__title">
+                        Stress Test
+                    </h1>
+                    <div class="stress__text">
+                        <p>Check your HTML mockups with random texts and different length</p>
+                    </div>
+                    <form action="/" class="stress-form">
+                        <div class="stress-form__switch">
+                            My page is
+                            <div class="stress-form__formgroup stress-form__formgroup--inline">
+                                <input id="public" name="page status" type="radio" class="stress-form__switch-input" value="public" checked>
+                                <label for="public" class="stress-form__switch-label">public</label>
+                            </div>
+                            <div class="stress-form__formgroup stress-form__formgroup--inline">
+                                <input id="htaccess" name="page status" type="radio" class="stress-form__switch-input" value="public">
+                                <label for="htaccess" class="stress-form__switch-label"><span class="no-mobile">behind </span>.htaccess<span class="no-mobile"> authorisation</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="stress-form__url">
+                            <input type="text" class="stress-form__input stress-form__input--url" placeholder="URL">
+                            <!-- ._hidden -->
+                            <div class="stress-form__htaccess">
+                                <input type="text" class="stress-form__input stress-form__input--login" placeholder="Login">
+                                <input type="text" class="stress-form__input stress-form__input--password" placeholder="Password">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="stress__captions">
+                        <p>
+                            For any questions please write at <a href="mailto:hello@flyphant.com">hello@flyphant.com</a>.
+                        </p>
+                        <p>
+                            And, of course, it is public beta, so please be patient to any bugs :-D
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+
+
+
+
+    <script src="/views/js/bundle.js"></script>
+</body>
+
+</html>
