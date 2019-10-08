@@ -1,47 +1,64 @@
 <?php
 
-function defaultPage($code,$error='')
+function defaultPage($code,$error='', $url = '')
 {
 
-    $content = "
+    $content = "<!DOCTYPE html>
+<html lang=\"ru\">
 
-	<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
-	<html xmlns='http://www.w3.org/1999/xhtml' lang='ru'>
-	<head>
-	<base href='/'>
-	<meta charset='UTF-8'>
-	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
-	<meta name='viewport' content='width=device-width, initial-scale=1' />
-	<title>Web page stress test</title>
-	<style type='text/css'>
-		div#stresstest-default {
-			text-align:		center;
-			font-family:	Helvetica, Arial;
-			font-size:		3em;
-			color:			#e0e0e0;
-			font-weight:	bold;
-			padding-top:	calc(50vh - 1.5em);
-			}
-	</style>
-	</head>
-	<body>
+<head>
+    <meta charset=\"UTF-8\">
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">
+    <link rel=\"stylesheet\" href=\"views/css/styles.css\">
+    <title>Index</title>
+</head>
+
+<body>
+
+
+    <div class=\"stress-page\">
+        <main class=\"main\">
+            <div class=\"wrap\">
+                <div id=\"stress-test-header\">
+                    <h1 class=\"stress__title\">
+                        Stress Test
+                    </h1>
+                   
+
 	";
 
     if ($error) {
         $content .= "<div id='stresstest-default' style='color:red;'>".$error."</div>";
     } else {
         if ($code = 'error') {
-            $content .= "<div id='stresstest-default'>check your web page for stress</div>";
+            $content .= "<div class=\"stress__text\">
+                        <p>Check your HTML mockups with random texts and different length</p>
+                    </div>";
         } else {
             $content .= "<div id='stresstest-default'>wrong url</div>";
         }
         
     }
 
+
+    $content  .= form_html($url);
+
     $content .= "
 
-	</body>
-	</html>
+	<div class=\"stress__captions\">
+                        <p>
+                            For any questions please write at <a href=\"mailto:hello@flyphant.com\">hello@flyphant.com</a>.
+                        </p>
+                        <p>
+                            And, of course, it is public beta, so please be patient to any bugs :-D
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
 
 	";
 
@@ -106,15 +123,55 @@ function form_html($url, $login = '', $password = '')
     $login = $login ?: ifSet($_COOKIE['login']);
     $password = $password ?: ifSet($_COOKIE['password']);
 
-    return "
 
-	<div id='stresstest-form'>
+    return "
+                    <form action=\"/\" class=\"stress-form\">
+                        <div class=\"stress-form__switch\">
+                            My page is
+                            <div class=\"stress-form__formgroup stress-form__formgroup--inline\">
+                                <input id=\"public\" name=\"page status\" type=\"radio\" class=\"stress-form__switch-input\" value=\"public\" checked>
+                                <label for=\"public\" class=\"stress-form__switch-label\">public</label>
+                            </div>
+                            <div class=\"stress-form__formgroup stress-form__formgroup--inline\">
+                                <input id=\"htaccess\" name=\"page status\" type=\"radio\" class=\"stress-form__switch-input\" value=\"public\">
+                                <label for=\"htaccess\" class=\"stress-form__switch-label\"><span class=\"no-mobile\">behind </span>.htaccess<span class=\"no-mobile\"> authorisation</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class=\"stress-form__url\">
+                            <input name='url' value='" . $url . "' type=\"text\" class=\"stress-form__input stress-form__input--url\" placeholder=\"URL\">
+                            <!-- ._hidden -->
+                            <div class=\"stress-form__htaccess\">
+                                <input name='login' value='" . $login . "' type=\"text\" class=\"stress-form__input stress-form__input--login\" placeholder=\"Login\">
+                                <input name='password' value='" . $password . "' type=\"text\" class=\"stress-form__input stress-form__input--password\" placeholder=\"Password\">
+                            </div>
+                            <input type='submit' alue='Test' hidden>
+                        </div>
+                    </form>
+	";
+
+}
+
+function form_html_result($url, $login = '', $password = '')
+{
+    $login = $login ?: ifSet($_COOKIE['login']);
+    $password = $password ?: ifSet($_COOKIE['password']);
+
+
+    return "
+<div id=\"stress-test-panel\" class=\"stress-process\">
+        <form class=\"stress-process__form\" action=\"\">
+            <input type=\"text\" class=\"stress-process__input\" value=\"https://redramka.ru/\">
+            <button class=\"stress-process__reset\">Reset</button>
+        </form>
+    </div>
+	<!--<div id='stresstest-form'>
 	    <form method='post' action='/'>
 	    <input type='text' name='url' value='" . $url . "' placeholder='url' /><br />
 	    <input type='text' name='login' value='" . $login . "' placeholder='LOGIN' />
         <input type='text' name='password' value='" . $password . "' placeholder='PASSWORD' />
 	    <input type='submit' value='Test' style='position:absolute;left:-1000px;' />
-        </form></div>
+        </form></div>-->
 	";
 
 }
@@ -224,7 +281,7 @@ function addForm($html, $url)
         '/(<\/head>)/i',
         function ($matches) {
             global $url;
-            return $matches[1] . "\n" . form_html($url);
+            return $matches[1] . "\n" . form_html_result($url);
         },
         $html
     );

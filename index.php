@@ -102,7 +102,7 @@ if (isset($_REQUEST["url"]) && trim($_REQUEST["url"]) != '') {
 
             $html = str_replace("</html>", "", $html);
 
-            $html .= (form_html($url, $login, $password) . $form_style);
+            $html .= (form_html_result($url, $login, $password) . $form_style);
 
 //            $html = preg_replace_callback(
 //                '/(<\/head>)/i',
