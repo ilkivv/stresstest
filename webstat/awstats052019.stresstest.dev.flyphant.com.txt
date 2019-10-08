@@ -1,0 +1,372 @@
+AWSTATS DATA FILE 7.0 (build 1.971)
+# If you remove this file, all statistics for date 201905 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.stresstest.dev.flyphant.com.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 2007                
+POS_TIME 2679                
+POS_VISITOR 13478               
+POS_DAY 13948               
+POS_DOMAIN 3262                
+POS_LOGIN 3493                
+POS_ROBOT 3648                
+POS_WORMS 3812                
+POS_EMAILSENDER 3943                
+POS_EMAILRECEIVER 4086                
+POS_SESSION 14183               
+POS_SIDER 14373               
+POS_FILETYPES 4221                
+POS_DOWNLOADS 4431                
+POS_OS 4500                
+POS_BROWSER 4584                
+POS_SCREENSIZE 4808                
+POS_UNKNOWNREFERER 4882                
+POS_UNKNOWNREFERERBROWSER 5044                
+POS_ORIGIN 5126                
+POS_SEREFERRALS 5261                
+POS_PAGEREFS 5405                
+POS_SEARCHWORDS 5585                
+POS_KEYWORDS 5737                
+POS_MISC 2342                
+POS_ERRORS 5796                
+POS_CLUSTER 3349                
+POS_SIDER_404 5921                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20190602062950 1 0 9188842698196
+FirstTime 20190507181205
+LastTime 20190531085402
+LastUpdate 20190602070104 1 0 0 0 0
+TotalVisits 21                  
+TotalUnique 10                  
+MonthHostsKnown 0                   
+MonthHostsUnknown 10                  
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 33 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 0 0 0 0 0 0
+1 0 0 0 0 0 0
+2 0 0 0 0 0 0
+3 0 0 0 0 0 0
+4 0 0 0 0 0 0
+5 0 0 0 0 0 0
+6 0 0 0 0 0 0
+7 3 16 737246 0 0 0
+8 14 14 244416 0 1 0
+9 18 27 293239 16 235 134529
+10 13 13 416946 2 38 11602
+11 0 0 0 1 1 4958
+12 0 0 0 0 0 0
+13 0 0 0 0 0 0
+14 11 75 5467425 0 8 11154
+15 31 596 37733116 0 21 175152
+16 2 16 444460 0 0 0
+17 18 24 1603915 0 10 8905
+18 3 3 2760 1 2 920
+19 22 23 180417 5 32 28882
+20 0 0 0 0 0 0
+21 0 0 0 0 0 0
+22 0 0 0 0 0 0
+23 0 0 0 0 0 0
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+ip 135 807 47123940
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 1
+unknown 2 3718 20190530145706 2
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 8
+css 17 1249616 0 0
+png 289 21104787 0 0
+php 1 0 0 0
+html 134 5811413 0 0
+jpg 276 17711722 0 0
+js 27 927322 0 0
+svg 53 295820 0 0
+gif 10 23260 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 1
+/robots.txt 2 0 3718
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS 5
+macosx 5
+winnt 1
+Unknown 2
+linux 759
+win7 40
+END_OS
+
+# Browser ID - Hits
+BEGIN_BROWSER 10
+firefox66.0 4
+chrome74.0.3729.131 549
+mozilla 2
+netscape5.0 2
+safari12.1.1 1
+chrome73.0.3683.86 163
+chrome74.0.3729.169 3
+safari12.1 4
+chrome73.0.3683.103 47
+firefox67.0 32
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 1
+Mozilla/5.0_(compatible;_vkShare;__http://vk.com/dev/Share) 20190516102205
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 37 44
+From1 0 0
+From2 0 0
+From3 6 6
+From4 92 757
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 1
+http://away.vk.com/away.php 6 6
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 4
+403 18 89244
+206 1 920
+500 2 163998
+404 272 90727
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 81
+/upload/resize_cache/iblock/df5/185_185_2/df53d351c9ecbfbe606bda489ae568c2.jpg 6 http://stresstest.dev.flyphant.com/stresstest/
+/stresstest/ 1 http://stresstest.dev.flyphant.com/
+/upload/resize_cache/iblock/af1/150_60_1/af168b272794c57dd65de3c8831b3953.png 8 http://stresstest.dev.flyphant.com/stresstest/
+/upload/resize_cache/iblock/02e/185_185_2/02e5e5c1cfd116eac7ea60edf0f05ffd.jpg 2 http://stresstest.dev.flyphant.com/stresstest/
+/images/favicons/favicon-16x16.png 4 http://stresstest.dev.flyphant.com/stresstest/
+/local/build/images/arrow-down.65a8cb0f.svg 2 http://stresstest.dev.flyphant.com/stresstest/
+/upload/resize_cache/iblock/aaa/185_185_2/aaa4c7c1c3ff580f0053a48b4e071b6a.jpg 6 http://stresstest.dev.flyphant.com/stresstest/
+/upload/iblock/3bb/3bb59e314d2d2a5a5b1532535489a6ba.jpg 2 http://stresstest.dev.flyphant.com/stresstest/
+/upload/resize_cache/iblock/a99/150_60_1/a994bd61e27a803dc6c59b9d0e848a26.png 2 http://stresstest.dev.flyphant.com/stresstest/
+/local/build/images/no-img.aca43cb3.svg 1 http://stresstest.dev.flyphant.com/stresstest/
+/scripts/wow.js 8 http://stresstest.dev.flyphant.com/stresstest/
+/upload/iblock/feb/feb3fd8733c05e3e4e1318c0368f60ca.jpg 2 http://stresstest.dev.flyphant.com/stresstest/
+/local/templates/alatartsev/uploads/all/all01.jpg 2 http://stresstest.dev.flyphant.com/stresstest/
+/upload/iblock/a74/a74ea790c74a2586c1eb9a6e44abf9b8.jpg 2 http://stresstest.dev.flyphant.com/stresstest/
+/scripts/retina.js 6 http://stresstest.dev.flyphant.com/stresstest/
+/images/main-project-jagajam.jpg 5 http://stresstest.dev.flyphant.com/stresstest/
+/images/main-project-alfacapital.jpg 5 http://stresstest.dev.flyphant.com/stresstest/
+/upload/resize_cache/iblock/fbd/150_60_1/fbdc1f526d8428b49ba45ae292ff39ed.png 8 http://stresstest.dev.flyphant.com/stresstest/
+/upload/iblock/15b/15bf2102e89c49266bb75b32b9261d69.png 6 http://stresstest.dev.flyphant.com/stresstest/
+/stresstest. 1 -
+/local/build/images/read-yandex.379d1fbb.svg 2 http://stresstest.dev.flyphant.com/stresstest/
+/stresstest/pics/event01.jpg 1 http://stresstest.dev.flyphant.com/stresstest/
+/stresstest/pics/event05.jpg 1 http://stresstest.dev.flyphant.com/stresstest/
+/images/main-project-lego.jpg 5 http://stresstest.dev.flyphant.com/stresstest/
+/upload/iblock/328/328b42b9db79caa95d8c07c950afaeb8.jpg 5 http://stresstest.dev.flyphant.com/stresstest/
+/stresstest/pics/event07.jpg 1 http://stresstest.dev.flyphant.com/stresstest/
+/local/build/images/read-google.931836ce.svg 2 http://stresstest.dev.flyphant.com/stresstest/
+/local/templates/alatartsev/uploads/all/all06.jpg 2 http://stresstest.dev.flyphant.com/stresstest/
+/upload/iblock/149/14913759714d9eb3d7cbf1414ae11fe3.png 6 http://stresstest.dev.flyphant.com/stresstest/
+/images/main-project-wbp.jpg 5 http://stresstest.dev.flyphant.com/stresstest/
+/styles/common.css 5 http://stresstest.dev.flyphant.com/stresstest/
+/images/favicons/favicon-32x32.png 1 http://stresstest.dev.flyphant.com/stresstest/
+/local/templates/alatartsev/uploads/all/all02.jpg 2 http://stresstest.dev.flyphant.com/stresstest/
+/local/templates/alatartsev/uploads/all/all04.jpg 2 http://stresstest.dev.flyphant.com/stresstest/
+/upload/resize_cache/iblock/e48/150_60_1/e48c9a39c631cf02c2004bceafb79755.png 3 http://stresstest.dev.flyphant.com/stresstest/
+/images/main-project-bricsworld.jpg 5 http://stresstest.dev.flyphant.com/stresstest/
+/upload/resize_cache/iblock/514/185_185_2/5142364bf8ebbe5e5f7511b66a6ec820.jpg 2 http://stresstest.dev.flyphant.com/stresstest/
+/upload/resize_cache/iblock/fbb/150_60_1/fbb6ce2c31c5444d9d683d600a49240b.png 3 http://stresstest.dev.flyphant.com/stresstest/
+/local/build/images/read-flamp.3a76d620.svg 2 http://stresstest.dev.flyphant.com/stresstest/
+/local/build/images/ico-a.e06e58cb.png 2 http://stresstest.dev.flyphant.com/stresstest/
+/local/build/images/close-dark.3d1bcd93.svg 2 http://stresstest.dev.flyphant.com/stresstest/
+/index.oho 1 -
+/images/main-project-jagajam-analytics.jpg 5 http://stresstest.dev.flyphant.com/stresstest/
+/local/build/images/success-black.7f0af311.svg 2 http://stresstest.dev.flyphant.com/stresstest/
+/images/favicons/favicon-96x96.png 1 http://stresstest.dev.flyphant.com/stresstest/
+/stresstest/pics/event06.jpg 1 http://stresstest.dev.flyphant.com/stresstest/
+/local/build/images/arrow-down-red.597deacf.svg 2 http://stresstest.dev.flyphant.com/stresstest/
+/Apache 1 -
+/styles/animate-notie.css 5 http://stresstest.dev.flyphant.com/stresstest/
+/stresstest/pics/event03.jpg 1 http://stresstest.dev.flyphant.com/stresstest/
+/images/main-project-lifedesign.jpg 5 http://stresstest.dev.flyphant.com/stresstest/
+/local/build/images/read-2gis.56a53b5b.svg 2 http://stresstest.dev.flyphant.com/stresstest/
+/upload/iblock/860/8609a007cb0ce73b0249b3c23e13d8e8.png 4 http://stresstest.dev.flyphant.com/stresstest/
+/images/main-project-mpos.jpg 5 http://stresstest.dev.flyphant.com/stresstest/
+/images/favicons/apple-touch-icon-180x180.png 2 -
+/all-events-grid.html 1 http://stresstest.dev.flyphant.com/stresstest/
+/local/build/images/partners.4a5026ca.png 2 http://stresstest.dev.flyphant.com/stresstest/
+/local/templates/alatartsev/uploads/all/all03.jpg 2 http://stresstest.dev.flyphant.com/stresstest/
+/scripts/functions.js 7 http://stresstest.dev.flyphant.com/stresstest/
+/upload/resize_cache/iblock/d6e/185_185_2/d6e5aae7b1398b9f9b8f8deb8826046f.jpg 5 http://stresstest.dev.flyphant.com/stresstest/
+/stresstest/pics/event02.jpg 1 http://stresstest.dev.flyphant.com/stresstest/
+/styles/hide-company-name.css 5 http://stresstest.dev.flyphant.com/stresstest/
+/icons/powered_by_rh.png 10 http://stresstest.dev.flyphant.com/
+/stresstest/pics/event04.jpg 1 http://stresstest.dev.flyphant.com/stresstest/
+/upload/iblock/864/864d56f0d387f01402c7ba129402e038.jpg 2 http://stresstest.dev.flyphant.com/stresstest/
+/local/build/images/application-arrow.43a2b7a8.png 2 http://stresstest.dev.flyphant.com/stresstest/
+/upload/iblock/f43/f43321e184d1a8aff1607524ec6cd72d.jpg 6 http://stresstest.dev.flyphant.com/stresstest/
+/local/build/images/clients-desktop.58aa9447.png 2 http://stresstest.dev.flyphant.com/stresstest/
+/upload/iblock/491/4918215d8a7a29e6a0c8e344a6e22ad0.png 6 http://stresstest.dev.flyphant.com/stresstest/
+/images/main-project-uber.jpg 5 http://stresstest.dev.flyphant.com/stresstest/
+/local/templates/alatartsev/uploads/all/all07.jpg 2 http://stresstest.dev.flyphant.com/stresstest/
+/local/templates/alatartsev/uploads/all/all05.jpg 2 http://stresstest.dev.flyphant.com/stresstest/
+/local/build/images/ico-percent.ea9d45f1.png 2 http://stresstest.dev.flyphant.com/stresstest/
+/upload/resize_cache/iblock/a84/150_60_1/a8411af164a6605d464722e375c3bb18.png 4 http://stresstest.dev.flyphant.com/stresstest/
+/upload/iblock/104/104e97cb0b484a49a46676456fb6887e.jpg 2 http://stresstest.dev.flyphant.com/stresstest/
+/styles/animate.css 9 http://stresstest.dev.flyphant.com/stresstest/
+/index.php 1 -
+/upload/iblock/09e/09e0907ecc9a4c4f76e3c51887d71887.png 5 http://stresstest.dev.flyphant.com/stresstest/
+/scripts/jquery.js 6 http://stresstest.dev.flyphant.com/stresstest/
+/images/main-project-datsun.jpg 5 http://stresstest.dev.flyphant.com/stresstest/
+/local/build/images/arrow-down-gray.16658ccd.svg 2 http://stresstest.dev.flyphant.com/stresstest/
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 10
+5.77.5.203 83 596 34979738 20190530175028
+46.236.162.192 31 38 680471 20190531085402
+185.118.166.90 13 163 11447811 20190531075524
+195.211.23.208 2 2 2699 20190516102205
+109.124.54.173 1 1 1779 20190527145832
+46.242.11.215 1 2 4105 20190528091525
+185.245.84.194 1 1 920 20190515185412
+86.62.85.179 1 1 1779 20190527142753
+95.143.195.159 1 1 920 20190507181205
+52.114.75.71 1 2 3718 20190530145925
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 8
+20190507 2 2 1840 2
+20190508 1 1 920 1
+20190515 1 1 920 1
+20190516 8 8 146092 4
+20190527 24 25 183975 3
+20190528 23 32 564093 3
+20190530 60 709 45245358 5
+20190531 16 29 980742 2
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 5
+5mn-15mn 1
+30s-2mn 1
+0s-30s 12
+15mn-30mn 2
+30mn-1h 5
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 19
+/stresstest/ 58 1100091 9 9
+/ 51 3957123 12 8
+/catalog/filter/category-is-buy/type-is-%D0%9A%D0%B2%D0%B0%D1%80%D1%82%D0%B8%D1%80%D0%B0/apply/ 5 9295 0 0
+/en/about/ 3 26728 0 2
+/how-to-buy/ 2 188750 0 0
+/contacts/ 2 151833 0 2
+/services/ 2 125276 0 0
+/catalog/filter/category-is-buy/type-is-%D0%9A%D0%B2%D0%B0%D1%80%D1%82%D0%B8%D1%80%D0%B0/town-is-2238948/balkony-is-0/sanuzel-is-0/willcomplete-is-0/apply/ 1 1859 0 0
+/services/design/ 1 80642 0 0
+/en/projects/uber/ 1 19768 0 0
+/my-events-empty.html 1 1781 0 0
+/live-share-opened.html 1 1781 0 0
+/services/support/ 1 89536 0 0
+/wp-admin/admin-ajax.php 1 0 0 0
+/solutions/voice-dispatch/ 1 1781 0 0
+/en/projects/jagajam-analytics/ 1 1781 0 0
+/en/career/ 1 15184 0 0
+/team/ 1 36423 0 0
+/all-events-grid.html 1 1781 0 0
+END_SIDER

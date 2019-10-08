@@ -1,0 +1,7 @@
+AuthType Basic
+AuthName "/www/stresstest.dev.flyphant.com/webstat"
+AuthUserFile /var/www/flyphant/data/etc/186912377.passwd
+DirectoryIndex index.html
+<Limit GET POST>
+	require valid-user
+</Limit>
