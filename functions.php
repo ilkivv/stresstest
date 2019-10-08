@@ -106,7 +106,7 @@ function form_html($url, $login = '', $password = '')
                                 <input name='login' value='" . $login . "' type=\"text\" class=\"stress-form__input stress-form__input--login\" placeholder=\"Login\">
                                 <input name='password' value='" . $password . "' type=\"text\" class=\"stress-form__input stress-form__input--password\" placeholder=\"Password\">
                             </div>
-                            <input type='submit' alue='Test' hidden>
+                            <input type='submit' value='Test' hidden>
                         </div>
                     </form>
 	";
@@ -122,17 +122,11 @@ function form_html_result($url, $login = '', $password = '')
     return "
 <div id=\"stress-test-panel\" class=\"stress-process\">
         <form class=\"stress-process__form\" method='post' action='/'>
-            <input type=\"text\" class=\"stress-process__input\" value='" . $url . "'>
-            <button class=\"stress-process__reset\">Reset</button>
+            <input name='url' type=\"text\" class=\"stress-process__input\" value='" . $url . "'>
+            <input name='home' type='submit' class=\"stress-process__reset\">
         </form>
     </div>
-	<!--<div id='stresstest-form'>
-	    <form method='post' action='/'>
-	    <input type='text' name='url' value='" . $url . "' placeholder='url' /><br />
-	    <input type='text' name='login' value='" . $login . "' placeholder='LOGIN' />
-        <input type='text' name='password' value='" . $password . "' placeholder='PASSWORD' />
-	    <input type='submit' value='Test' style='position:absolute;left:-1000px;' />
-        </form></div>-->
+	
 	";
 
 }

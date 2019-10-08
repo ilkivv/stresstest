@@ -7,8 +7,8 @@ require $_SERVER['DOCUMENT_ROOT'] . '/functions.php';
 
 // Actions
 //unset($_COOKIE['host']);
-if (!isset($_REQUEST["url"]) && (isset($_COOKIE['host']) && $_COOKIE['host'])) {
-    $_REQUEST["url"] = $_COOKIE['host'];
+if (!isset($_REQUEST['url']) && (isset($_COOKIE['host']) && $_COOKIE['host'])) {
+        $_REQUEST['url'] = $_COOKIE['host'];
 }
 
 $cleared = false;/*
@@ -25,7 +25,8 @@ if ($_POST['url']) {
         print_r($info);
         die();
 }*/
-//var_dump($_REQUEST["url"]);die;
+
+//var_dump($_REQUEST['home']);die;
 if (isset($_REQUEST["url"]) && trim($_REQUEST["url"]) != '') {
     $parsed = parse_url(toScheme($_REQUEST["url"]));
 
