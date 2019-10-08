@@ -59,7 +59,14 @@ function defaultPage($code,$error='', $url = '')
 
         </main>
     </div>
+    <script type=\"text/javascript\" src=\" https://code.jquery.com/jquery-1.11.2.js \"></script>
+    <script src=\"/views/js/functions.js\"></script>
+    <script src=\"/views/js/bundle.js\"></script>
+    <script>
+</script>
+</body>
 
+</html>
 	";
 
     return $content;
@@ -77,6 +84,15 @@ $default_url = 'http://sashatikhonov.com/en/';
 $form_style = "
 <link rel=\"stylesheet\" href=\"/views/css/styles.css\">
 <script src=\"/views/js/bundle.js\"></script>
+<script src=\"/views/js/functions.js\"></script>
+<script>
+$(document).ready(function() {
+  $('input[name=\'home\']').click(function() {
+    $('input[name=\'url\']').val('');
+    $('input[type=\'submit\'').trigger('click');
+  });
+});
+</script>
 ";
 
 function form_html($url, $login = '', $password = '')
@@ -94,7 +110,7 @@ function form_html($url, $login = '', $password = '')
                                 <label for=\"public\" class=\"stress-form__switch-label\">public</label>
                             </div>
                             <div class=\"stress-form__formgroup stress-form__formgroup--inline\">
-                                <input id=\"htaccess\" name=\"page status\" type=\"radio\" class=\"stress-form__switch-input\" value=\"public\">
+                                <input id=\"htaccess\" name=\"page status\" type=\"radio\" class=\"stress-form__switch-input\" value=\"htaccess\">
                                 <label for=\"htaccess\" class=\"stress-form__switch-label\"><span class=\"no-mobile\">behind </span>.htaccess<span class=\"no-mobile\"> authorisation</span>
                                 </label>
                             </div>
@@ -103,8 +119,8 @@ function form_html($url, $login = '', $password = '')
                             <input name='url' value='" . $url . "' type=\"text\" class=\"stress-form__input stress-form__input--url\" placeholder=\"URL\">
                             <!-- ._hidden -->
                             <div class=\"stress-form__htaccess\">
-                                <input name='login' value='" . $login . "' type=\"text\" class=\"stress-form__input stress-form__input--login\" placeholder=\"Login\">
-                                <input name='password' value='" . $password . "' type=\"text\" class=\"stress-form__input stress-form__input--password\" placeholder=\"Password\">
+                                <input id='login' name='login' value='" . $login . "' type=\"text\" class=\"stress-form__input stress-form__input--login\" placeholder=\"Login\">
+                                <input id='password' name='password' value='" . $password . "' type=\"text\" class=\"stress-form__input stress-form__input--password\" placeholder=\"Password\">
                             </div>
                             <input type='submit' value='Test' hidden>
                         </div>
@@ -122,8 +138,9 @@ function form_html_result($url, $login = '', $password = '')
     return "
 <div id=\"stress-test-panel\" class=\"stress-process\">
         <form class=\"stress-process__form\" method='post' action='/'>
-            <input name='url' type=\"text\" class=\"stress-process__input\" value='" . $url . "'>
-            <input name='home' type='submit' class=\"stress-process__reset\">
+            <input name='url' type=\"text\" class=\"stress-process__input\" value='" . $url . "'>    
+            <input name='home' class=\"stress-process__reset\">
+            <input type='submit' hidden>
         </form>
     </div>
 	
