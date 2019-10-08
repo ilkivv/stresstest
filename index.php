@@ -100,9 +100,9 @@ if (isset($_REQUEST["url"]) && trim($_REQUEST["url"]) != '') {
 
         if ($html && getMimeType($html, 'str') == 'text/html') {
 
-            $html = str_replace("</html>", "", $html);
+            //$html = str_replace("</html>", "", $html);
 
-            $html .= (form_html_result($url, $login, $password) . $form_style);
+            //$html .= (form_html_result($url, $login, $password) . $form_style);
 
 //            $html = preg_replace_callback(
 //                '/(<\/head>)/i',
@@ -141,6 +141,9 @@ if (isset($_REQUEST["url"]) && trim($_REQUEST["url"]) != '') {
             );
 
             $html = replaceURLs($html, $host, $path);
+            $html = str_replace("</body>", "", $html);
+
+            $html .= (form_html_result($url, $login, $password) . $form_style);
         } elseif ($html) {
             header('Content-Type: ' . getMimeType($html, 'str'));
             echo $html;

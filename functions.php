@@ -42,7 +42,7 @@ function defaultPage($code,$error='', $url = '')
     }
 
 
-    $content  .= form_html($url);
+    //$content  .= form_html($url);
 
     $content .= "
 
@@ -75,47 +75,8 @@ $url = $login = $password = '';
 $default_url = 'http://sashatikhonov.com/en/';
 
 $form_style = "
-
-<style type='text/css'>
-	#stresstest-form
-	{
-		font-family:			Helvetica, Arial;
-		z-index:				1000;
-		position:				fixed;
-		bottom:					3vw;
-		left:					3vw;
-		right:					3vw;
-	}
-	#stresstest-form input[type='text']
-	{
-		padding-left:			1em;
-		display:				block;
-		border:					0;
-		height:					3em;
-		background:				#ffffff;
-		font-size:				15px;
-		box-sizing:				border-box;
-		width:					94vw;
-		height:					45px;
-		background:				#ffffff;
-		border-radius:			3px;
-		-webkit-box-shadow:		0px 3px 6px 0px rgba(0,0,0,0.3);
-		-moz-box-shadow:		0px 3px 6px 0px rgba(0,0,0,0.3);
-		box-shadow:				0px 3px 6px 0px rgba(0,0,0,0.3);
-	}
-	#stresstest-form input[type='submit']
-	{
-
-		/*display:				none;*/
-            position: absolute;
-    bottom: 116px;
-    right: 55px;
-    width:10px;
-
-
-	}
-</style>
-
+<link rel=\"stylesheet\" href=\"/views/css/styles.css\">
+<script src=\"/views/js/bundle.js\"></script>
 ";
 
 function form_html($url, $login = '', $password = '')
@@ -278,22 +239,22 @@ function addForm($html, $url)
 {
 
     $html = preg_replace_callback(
-        '/(<\/head>)/i',
+        '/(<\/h1>)/i',
         function ($matches) {
             global $url;
-            return $matches[1] . "\n" . form_html_result($url);
+            return $matches[1] . "\n" . form_html($url);
         },
         $html
     );
 
-    $html = preg_replace_callback(
+    /*$html = preg_replace_callback(
         '/(<\/head>)/i',
         function ($matches) {
             global $form_style;
             return $form_style . "\n" . $matches[1];
         },
         $html
-    );
+    );*/
 
     return $html;
 
@@ -341,7 +302,6 @@ function is_url($uri)
         return false;
     }
 }
-
 
 function ifSet(&$value)
 {
