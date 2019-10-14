@@ -36,12 +36,18 @@
                             </div>
                         </div>
                         <div class="stress-form__url">
-                            <input type="text" class="stress-form__input stress-form__input--url" placeholder="URL">
+                            <input type="text" class="stress-form__input stress-form__input--url _error" placeholder="URL" value="http://flyphant.dev.flyphant.com/en/projects/itoolabs/">
+                            <div class="stress-form__error">
+                                Wrong address
+                            </div>
                         </div>
                         <!-- ._hidden -->
                         <div class="stress-form__htaccess j-switchable-block _hidden">
-                            <input type="text" class="stress-form__input stress-form__input--login" placeholder="Login">
-                            <input type="text" class="stress-form__input stress-form__input--password" placeholder="Password">
+                            <input type="text" class="stress-form__input stress-form__input--login _error" placeholder="Login" value="flyphant-development">
+                            <input type="text" class="stress-form__input stress-form__input--password _error" placeholder="Password" value="secret-password">
+                            <div class="stress-form__error">
+                                Wrong login or password
+                            </div>
                         </div>
                     </form>
                     <div class="stress__captions">

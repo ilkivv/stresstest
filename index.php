@@ -1,35 +1,20 @@
 <?php
 
+
 $cookieExpireTime = time() + 3600; // 1 year
 
 // Predefines
 require $_SERVER['DOCUMENT_ROOT'] . '/functions.php';
 
-// Actions
-//unset($_COOKIE['host']);
 if (!isset($_REQUEST['url']) && (isset($_COOKIE['host']) && $_COOKIE['host'])) {
         $_REQUEST['url'] = $_COOKIE['host'];
 }
 
-$cleared = false;/*
-if ($_POST['url']) {
-    $ch = curl_init($_POST['url']);
-    
-    // Запускаем
-    curl_exec($ch);
-    
-    // Проверяем наличие ошибок
-    if (!curl_errno($ch)) {
-        $info = curl_getinfo($ch);
-        
-        print_r($info);
-        die();
-}*/
+$cleared = false;
 
-//var_dump($_REQUEST['home']);die;
+//var_dump($_REQUEST["url"]);die;
 if (isset($_REQUEST["url"]) && trim($_REQUEST["url"]) != '') {
     $parsed = parse_url(toScheme($_REQUEST["url"]));
-
     if (isset($_COOKIE['host']) && $_COOKIE['host'] != $parsed['host']) {
         setcookie("host", "", -1);
         setcookie("login", "", -1);
@@ -44,7 +29,6 @@ if (isset($_REQUEST["url"]) && trim($_REQUEST["url"]) != '') {
     if (isset($_REQUEST['path']) && $_REQUEST['path']) {
         $url = rtrim($url, '/') . DIRECTORY_SEPARATOR . $_REQUEST['path'];
     }
-
     if (is_url($url)) {
         $login = ifSet($_REQUEST['login']) ?: ifSet($_COOKIE['login']);
         $password = ifSet($_REQUEST['password']) ?: ifSet($_COOKIE['password']);
@@ -77,51 +61,29 @@ if (isset($_REQUEST["url"]) && trim($_REQUEST["url"]) != '') {
 
             $html = @file_get_contents($url, false, $context);
         }
-        //var_dump($http_response_header);
 
         if (!$html && !stristr($http_response_header[0], "401")) {
             setcookie("host", "", -1);
             setcookie("login", "", -1);
             setcookie("password", "", -1);
-            header("location: /?");
+            $html = defaultPage('url');
+            $html = addForm($html, $url);
+            echo $html;
+            die();
         }
         if (stristr($http_response_header[0], "401")) {
             setcookie("host", "", -1);
             setcookie("login", "", -1);
             setcookie("password", "", -1);
-            $html = defaultPage('default',$http_response_header[0]);
-        
+            $html = defaultPage('error',$http_response_header[0]);
             $html = addForm($html, $url);
             echo $html;
             die();
         }
-        
-        // $html = str_replace($host, $_SERVER['HTTP_HOST'], $html);
+
         $html = replace_links($html);
 
         if ($html && getMimeType($html, 'str') == 'text/html') {
-
-            //$html = str_replace("</html>", "", $html);
-
-            //$html .= (form_html_result($url, $login, $password) . $form_style);
-
-//            $html = preg_replace_callback(
-//                '/(<\/head>)/i',
-//                function ($matches) {
-//                    global $url;
-//                    return $matches[1] . "\n" . form_html($url);
-//                },
-//                $html
-//            );
-//
-//            $html = preg_replace_callback(
-//                '/(<\/head>)/i',
-//                function ($matches) {
-//                    global $form_style;
-//                    return $form_style . "\n" . $matches[1];
-//                },
-//                $html
-//            );
 
             $textAsReplaceParts = explode('. ', $textForReplace);
 
@@ -130,7 +92,7 @@ if (isset($_REQUEST["url"]) && trim($_REQUEST["url"]) != '') {
             $html = preg_replace_callback(
                 '@([^title|script|style|\!]*>)([a-z0-9а-яA-ZА-Я]+.*?)(<){1}@i',
                 function ($matches) {
-// 				echo $matches[2] . "\n";
+
                     global $textAsReplaceParts, $textAsReplaceShortParts;
                     if (strlen($matches[2]) > 20) {
                         return $matches[1] . $textAsReplaceParts[rand(0, count($textAsReplaceParts))] . $matches[3];
@@ -151,16 +113,13 @@ if (isset($_REQUEST["url"]) && trim($_REQUEST["url"]) != '') {
             exit;
         }
 
-// 		$html = replaceCSSLinksWithStyle($html, $host, $path);
-
     } else {
 
-        $html = defaultPage('error');
+        $html = defaultPage('url');
 
-        $url = "";
+        //$url = "";
 
         $html = addForm($html, $url);
-
     }
 } else {
 

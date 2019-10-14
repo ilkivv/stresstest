@@ -28,21 +28,23 @@ function defaultPage($code,$error='', $url = '')
 
 	";
 
-    if ($error) {
-        $content .= "<div id='stresstest-default' style='color:red;'>".$error."</div>";
+    if ($code === 'error') {
+        $content .= "<div class=\"stress-form__error\">
+                                Wrong login or password
+                            </div>";
+
     } else {
-        if ($code = 'error') {
+        if ($code === 'default') {
             $content .= "<div class=\"stress__text\">
                         <p>Check your HTML mockups with random texts and different length</p>
                     </div>";
-        } else {
-            $content .= "<div id='stresstest-default'>wrong url</div>";
+        } elseif($code === 'url') {
+            $content .= "<div class=\"stress-form__error\">
+                                Wrong address
+                            </div>";
         }
-        
+
     }
-
-
-    //$content  .= form_html($url);
 
     $content .= "
 
@@ -58,14 +60,35 @@ function defaultPage($code,$error='', $url = '')
             </div>
 
         </main>
-    </div>
-    <script type=\"text/javascript\" src=\" https://code.jquery.com/jquery-1.11.2.js \"></script>
+    </div>";
+
+    $content .= "<script type=\"text/javascript\" src=\" https://code.jquery.com/jquery-1.11.2.js \"></script>
     <script src=\"/views/js/functions.js\"></script>
     <script src=\"/views/js/bundle.js\"></script>
-    <script>
-</script>
-</body>
+ ";
+    if($code === "error"){
+    $content .= "<script>
+    $(document).ready(function() {
+        $('.stress-form__input--login').addClass('_error');
+        $('.stress-form__input--login').val('Login');
+        
+        $('.stress-form__input--password').addClass('_error');
+        $('.stress-form__input--password').val('Password');
+  });
+</script>";
+    }
 
+    if($code === "url"){
+        $content .= "<script>
+    $(document).ready(function() {
+        $('.stress-form__input--url').addClass('_error');
+        //$('.stress-form__input--url').val('http://example.com');
+  });
+</script>";
+    }
+
+    $content .= "
+</body>
 </html>
 	";
 
@@ -81,6 +104,8 @@ $url = $login = $password = '';
 
 $default_url = 'http://sashatikhonov.com/en/';
 
+
+
 $form_style = "
 <link rel=\"stylesheet\" href=\"/views/css/styles.css\">
 <script src=\"/views/js/bundle.js\"></script>
@@ -95,12 +120,43 @@ $(document).ready(function() {
 </script>
 ";
 
+
 function form_html($url, $login = '', $password = '')
 {
     $login = $login ?: ifSet($_COOKIE['login']);
     $password = $password ?: ifSet($_COOKIE['password']);
+    return "
+                    <form action=\"/\" class=\"stress-form\" method=\"post\"\">
+                        <div class=\"stress-form__switch\">
+                            My page is
+                            <div class=\"stress-form__formgroup stress-form__formgroup--inline\">
+                                <input id=\"public\" name=\"page status\" type=\"radio\" class=\"stress-form__switch-input\" value=\"public\" checked>
+                                <label for=\"public\" class=\"stress-form__switch-label\">public</label>
+                            </div>
+                            <div class=\"stress-form__formgroup stress-form__formgroup--inline\">
+                                <input id=\"htaccess\" name=\"page status\" type=\"radio\" class=\"stress-form__switch-input\" value=\"htaccess\">
+                                <label for=\"htaccess\" class=\"stress-form__switch-label\"><span class=\"no-mobile\">behind </span>.htaccess<span class=\"no-mobile\"> authorisation</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class=\"stress-form__url j-switchable-block _hidden\">
+                            <input name='url' value='" . $url . "' type=\"text\" class=\"stress-form__input stress-form__input--url\" placeholder=\"URL\">
+                            <!-- ._hidden -->
+                            <div class=\"stress-form__htaccess\">
+                                <input id='login' name='login' value='" . $login . "' type=\"text\" class=\"stress-form__input stress-form__input--login\" placeholder=\"Login\">
+                                <input id='password' name='password' value='" . $password . "' type=\"text\" class=\"stress-form__input stress-form__input--password\" placeholder=\"Password\">
+                            </div>
+                            <input type='submit' value='Test' hidden>
+                        </div>
+                    </form>
+	";
 
+}
 
+function form_html_error($url, $login = '', $password = '')
+{
+    $login = $login ?: ifSet($_COOKIE['login']);
+    $password = $password ?: ifSet($_COOKIE['password']);
     return "
                     <form action=\"/\" class=\"stress-form\">
                         <div class=\"stress-form__switch\">
@@ -115,12 +171,12 @@ function form_html($url, $login = '', $password = '')
                                 </label>
                             </div>
                         </div>
-                        <div class=\"stress-form__url\">
+                        <div class=\"stress-form__url j-switchable-block _hidden\">
                             <input name='url' value='" . $url . "' type=\"text\" class=\"stress-form__input stress-form__input--url\" placeholder=\"URL\">
                             <!-- ._hidden -->
                             <div class=\"stress-form__htaccess\">
-                                <input id='login' name='login' value='" . $login . "' type=\"text\" class=\"stress-form__input stress-form__input--login\" placeholder=\"Login\">
-                                <input id='password' name='password' value='" . $password . "' type=\"text\" class=\"stress-form__input stress-form__input--password\" placeholder=\"Password\">
+                                <input id='login' name='login' value='" . $login . "' type=\"text\" class=\"stress-form__input stress-form__input--login _error\" placeholder=\"Login\">
+                                <input id='password' name='password' value='" . $password . "' type=\"text\" class=\"stress-form__input stress-form__input--password _error\" placeholder=\"Password\">
                             </div>
                             <input type='submit' value='Test' hidden>
                         </div>
@@ -248,25 +304,14 @@ function replaceCSSLinksWithStyle($html, $host, $path)
 
 function addForm($html, $url)
 {
-
-    $html = preg_replace_callback(
-        '/(<\/h1>)/i',
-        function ($matches) {
-            global $url;
-            return $matches[1] . "\n" . form_html($url);
-        },
-        $html
-    );
-
-    /*$html = preg_replace_callback(
-        '/(<\/head>)/i',
-        function ($matches) {
-            global $form_style;
-            return $form_style . "\n" . $matches[1];
-        },
-        $html
-    );*/
-
+        $html = preg_replace_callback(
+            '/(<\/h1>)/i',
+            function ($matches) {
+                global $url;
+                return $matches[1] . "\n" . form_html($url);
+            },
+            $html
+        );
     return $html;
 
 }
