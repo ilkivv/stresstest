@@ -305,12 +305,13 @@ function replaceCSSLinksWithStyle($html, $host, $path)
 function addForm($html, $url)
 {
         $html = preg_replace_callback(
-            '/(&nbsp;)/i',
+            '/(<\/div>)/i',
             function ($matches) {
                 global $url;
                 return $matches[1] . "\n" . form_html($url);
             },
-            $html
+            $html,
+            1
         );
     return $html;
 
