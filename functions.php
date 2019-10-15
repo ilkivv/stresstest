@@ -29,7 +29,7 @@ function defaultPage($code,$error='', $url = '')
 	";
     $content .= "<div class=\"stress__text\">
                         <p>Check your HTML mockups with random texts and different length</p>
-                    </div>";
+                    </div>&nbsp;";
     if ($code === 'error') {
         $content .= "<div class=\"stress-form__error\">
                                 Wrong login or password
@@ -125,31 +125,6 @@ function form_html($url, $login = '', $password = '')
 {
     $login = $login ?: ifSet($_COOKIE['login']);
     $password = $password ?: ifSet($_COOKIE['password']);
-    /*return "
-                    <form action=\"/\" id=\"stress-test-form\" class=\"stress-form j-stress-form\" method=\"post\"\">
-                        <div class=\"stress-form__switch\">
-                            My page is
-                            <div class=\"stress-form__formgroup stress-form__formgroup--inline\">
-                                <input id=\"public\" name=\"page status\" type=\"radio\" class=\"stress-form__switch-input\" value=\"public\" checked>
-                                <label for=\"public\" class=\"stress-form__switch-label\">public</label>
-                            </div>
-                            <div class=\"stress-form__formgroup stress-form__formgroup--inline\">
-                                <input id=\"htaccess\" name=\"page status\" type=\"radio\" class=\"stress-form__switch-input\" value=\"htaccess\">
-                                <label for=\"htaccess\" class=\"stress-form__switch-label\"><span class=\"no-mobile\">behind </span>.htaccess<span class=\"no-mobile\"> authorisation</span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class=\"stress-form__url\">
-                            <input name='url' value='" . $url . "' type=\"text\" class=\"stress-form__input stress-form__input--url\" placeholder=\"URL\">
-                            <!-- ._hidden -->
-                            <div class=\"stress-form__htaccess  j-switchable-block _hidden\">
-                                <input id='login' name='login' value='" . $login . "' type=\"text\" class=\"stress-form__input stress-form__input--login\" placeholder=\"Login\">
-                                <input id='password' name='password' value='" . $password . "' type=\"text\" class=\"stress-form__input stress-form__input--password\" placeholder=\"Password\">
-                            </div>
-                            <input type='submit' value='Test' hidden>
-                        </div>
-                    </form>
-	";*/
     return "
     <form action=\"/\" method='post' class=\"stress-form j-stress-form\" id=\"stress-test-form\">
                         <div class=\"stress-form__switch\">
@@ -330,7 +305,7 @@ function replaceCSSLinksWithStyle($html, $host, $path)
 function addForm($html, $url)
 {
         $html = preg_replace_callback(
-            '/(<\/h1>)/i',
+            '/(&nbsp;)/i',
             function ($matches) {
                 global $url;
                 return $matches[1] . "\n" . form_html($url);
