@@ -29,7 +29,7 @@ function defaultPage($code,$error='', $url = '')
 	";
     $content .= "<div class=\"stress__text\">
                         <p>Check your HTML mockups with random texts and different length</p>
-                    </div>&nbsp;";
+                    </div>";
     if ($code === 'error') {
         $content .= "<div class=\"stress-form__error\">
                                 Wrong login or password
